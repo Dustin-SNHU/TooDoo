@@ -25,13 +25,17 @@ struct ContentView: View {
     
     // Function to add a new text item
     func addNewTask() {
+        taskDatabase.tasks.append(Task(id: String(taskDatabase.tasks.count + 1), taskName: newTaskItem))
+        self.newTaskItem = "" // Clear out text field after adding new item
         
+        // Change to id field
     }
     
     // Task list array
     var body: some View {
         NavigationView {
             VStack {
+                textField.padding()
                 List(self.taskDatabase.tasks) {
                     task in Text(task.taskName) // Pull task names
                 }
@@ -43,7 +47,10 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+                .previewInterfaceOrientation(.portrait)
+        }
     }
 }
 
