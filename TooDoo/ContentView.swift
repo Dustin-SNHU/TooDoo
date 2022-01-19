@@ -15,9 +15,17 @@ struct ContentView: View {
     // textField structure
     var textField : some View {
         HStack {
-            TextField("Enter Task Name",text:
-                        self.$newTaskItem)
+            TextField("Enter Task Name",text: self.$newTaskItem)
+            // Button to add new task items
+            Button(action: self.addNewTask, label: {
+                Text("New")
+            })
         }
+    }
+    
+    // Function to add a new text item
+    func addNewTask() {
+        
     }
     
     // Task list array
