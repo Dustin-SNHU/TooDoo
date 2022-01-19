@@ -14,6 +14,7 @@
 		4B7DA3D3278DB281004147A8 /* TooDooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7DA3D2278DB281004147A8 /* TooDooTests.swift */; };
 		4B7DA3DD278DB281004147A8 /* TooDooUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7DA3DC278DB281004147A8 /* TooDooUITests.swift */; };
 		4B7DA3DF278DB281004147A8 /* TooDooUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7DA3DE278DB281004147A8 /* TooDooUITestsLaunchTests.swift */; };
+		4B8010912798BB5E00822176 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8010902798BB5E00822176 /* Database.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		4B7DA3D8278DB281004147A8 /* TooDooUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TooDooUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B7DA3DC278DB281004147A8 /* TooDooUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooDooUITests.swift; sourceTree = "<group>"; };
 		4B7DA3DE278DB281004147A8 /* TooDooUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooDooUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4B8010902798BB5E00822176 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				4B7DA3C1278DB280004147A8 /* TooDooApp.swift */,
 				4B7DA3C3278DB280004147A8 /* ContentView.swift */,
+				4B8010902798BB5E00822176 /* Database.swift */,
 				4B7DA3C5278DB281004147A8 /* Assets.xcassets */,
 				4B7DA3C7278DB281004147A8 /* Preview Content */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B8010912798BB5E00822176 /* Database.swift in Sources */,
 				4B7DA3C4278DB280004147A8 /* ContentView.swift in Sources */,
 				4B7DA3C2278DB280004147A8 /* TooDooApp.swift in Sources */,
 			);
