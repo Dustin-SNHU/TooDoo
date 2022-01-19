@@ -20,6 +20,6 @@ struct Task: Identifiable {
 }
 
 // Create Database ObservableObject to store task items 
-class Database : ObservableObject {
+class TaskDatabase : ObservableObject {
     @Published var tasks = [Task]()
 }
