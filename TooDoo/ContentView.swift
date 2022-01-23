@@ -44,15 +44,21 @@ struct ContentView: View {
                     ForEach(self.taskDatabase.tasks) {
                         task in Text(task.taskName)
                     }.onMove(perform: self.move)
+                        .onDelete(perform: self.delete)
                 }
                 .navigationBarTitle("TooDoo") // Title element
                 .navigationBarItems(trailing: EditButton()) // Edit button
             }
         }
     }
+    // Move Function
     func move(from source: IndexSet, to destination: Int) {
         taskDatabase.tasks.move(fromOffsets: source, toOffset: destination)
-        
+    }
+    
+    // Delete function
+    func delete(at offsets: IndexSet) {
+        taskDatabase.tasks.remove(atOffsets: offsets)
     }
 }
 
