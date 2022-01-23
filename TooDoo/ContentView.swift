@@ -21,7 +21,7 @@ struct ContentView: View {
             
             // Button to add new task items
             Button(action: self.addNewTask, label: {
-                Text("New")
+                Text("Add")
                 
             })
         }
@@ -29,9 +29,13 @@ struct ContentView: View {
     
     // Function to add a new text item
     func addNewTask() {
-        taskDatabase.tasks.append(Task(id: String(taskDatabase.tasks.count + 1), taskName: newTaskItem))
-        self.newTaskItem = "" // Clear out text field after adding new item
-        
+        if newTaskItem != "" { // Check to see if there is any text in the textField
+            taskDatabase.tasks.append(Task(id: String(taskDatabase.tasks.count + 1), taskName: newTaskItem))
+            self.newTaskItem = "" // Clear out text field after adding new item
+        }
+        else {
+            self.newTaskItem = "" // Clear out text field
+        }
         // Change to id field
     }
     
@@ -43,8 +47,9 @@ struct ContentView: View {
                 List {
                     ForEach(self.taskDatabase.tasks) {
                         task in Text(task.taskName)
-                    }.onMove(perform: self.move)
-                        .onDelete(perform: self.delete)
+                    }
+                    .onMove(perform: self.move)
+                    .onDelete(perform: self.delete)
                 }
                 .navigationBarTitle("TooDoo") // Title element
                 .navigationBarItems(trailing: EditButton()) // Edit button
