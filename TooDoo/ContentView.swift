@@ -31,6 +31,7 @@ struct ContentView: View {
             }
             HStack {
                 TextField("Description", text: self.$newDescription)
+                    .font(Font.system(size: 12, design: .default))
                 DatePicker("", selection: $newDate, displayedComponents: [.date])
             }
         }
@@ -39,7 +40,7 @@ struct ContentView: View {
     // Function to add a new text item
     func addNewTask() {
         if newTaskItem != "" { // Check to see if there is any text in the textField
-            taskDatabase.tasks.append(Task(id: String(taskDatabase.tasks.count + 1), taskName: newTaskItem))
+            taskDatabase.tasks.append(Task(id: String(taskDatabase.tasks.count + 1), taskName: newTaskItem, taskDescription: newDescription, taskDate: newDate))
             self.reset() // Resets all fields
         }
         else {
@@ -55,7 +56,14 @@ struct ContentView: View {
                 textField.padding() // Makes button look nicer
                 List {
                     ForEach(self.taskDatabase.tasks) {
-                        task in Text(task.taskName)
+                        task in VStack {
+                            Text(task.taskName)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            Text(task.taskDescription)
+                                .font(.system(size: 12, weight: .light, design: .default))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            //Date(task.taskDate)
+                        }
                     }
                     .onMove(perform: self.move)
                     .onDelete(perform: self.delete)

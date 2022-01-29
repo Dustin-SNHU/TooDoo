@@ -16,7 +16,7 @@ struct Task: Identifiable {
     var id = String() // Unique ID
     var taskName = String() // Name of task item
     var taskDescription = String() // Description of task item
-    //hold for date field
+    var taskDate = Date() // Date of task item
 }
 
 // Create Database ObservableObject to store task items 
