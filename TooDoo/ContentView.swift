@@ -12,18 +12,27 @@ import Combine
 // Main structure
 struct ContentView: View {
     @ObservedObject var taskDatabase = TaskDatabase() // Retrieve list items
-    @State var newTaskItem : String = "" // Updatable object for new task list item; will update as the user types into the textField
+    @State var newTaskItem: String = "" // Updatable object for new task list item; will update as the user types into the textField
+    @State var newDescription: String = ""
+    @State var newDate = Date()
     
     // textField structure
     var textField : some View {
-        HStack {
-            TextField("Enter Task Name",text: self.$newTaskItem)
-            
-            // Button to add new task items
-            Button(action: self.addNewTask, label: {
-                Text("Add")
+        VStack {
+            HStack {
                 
-            })
+                TextField("Enter Task Name", text: self.$newTaskItem)
+                
+                // Button to add new task items
+                Button(action: self.addNewTask, label: {
+                    Text("Add")
+                    
+                })
+            }
+            HStack {
+                TextField("Description", text: self.$newDescription)
+                DatePicker("", selection: $newDate, displayedComponents: [.date])
+            }
         }
     }
     
@@ -31,10 +40,10 @@ struct ContentView: View {
     func addNewTask() {
         if newTaskItem != "" { // Check to see if there is any text in the textField
             taskDatabase.tasks.append(Task(id: String(taskDatabase.tasks.count + 1), taskName: newTaskItem))
-            self.newTaskItem = "" // Clear out text field after adding new item
+            self.reset() // Resets all fields
         }
         else {
-            self.newTaskItem = "" // Clear out text field
+            self.reset() // Clear out text field
         }
         // Change to id field
     }
@@ -64,6 +73,13 @@ struct ContentView: View {
     // Delete function
     func delete(at offsets: IndexSet) {
         taskDatabase.tasks.remove(atOffsets: offsets)
+    }
+
+    // Reset function; Clears out data
+    func reset() {
+        self.newTaskItem = ""
+        self.newDescription = ""
+        self.newDate = Date()
     }
 }
 
