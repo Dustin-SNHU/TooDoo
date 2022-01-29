@@ -58,6 +58,7 @@ struct ContentView: View {
                 }
                 
                 .navigationBarTitle("TooDoo") // Title element
+                .listStyle(PlainListStyle()) // Using plain list style 
                 .navigationBarItems(
                     leading: EditButton(), // Edit button
                     trailing:
