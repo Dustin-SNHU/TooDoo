@@ -47,16 +47,22 @@ struct ContentView: View {
                 List {
                     ForEach(self.taskDatabase.tasks) {
                         task in
-                        HStack {
-                            Image(systemName: "circle"); Text(task.taskName) // Applied a checkbox circle and task name
-                        }
+                            HStack {
+                                Image(systemName: "circle")
+                                Text(task.taskName) // Applied a checkbox circle and task name
+                                Spacer()
+                            }
                     }
                     .onMove(perform: self.move)
                     .onDelete(perform: self.delete)
                 }
                 
                 .navigationBarTitle("TooDoo") // Title element
-                .navigationBarItems(trailing: EditButton()) // Edit button
+                .navigationBarItems(
+                    leading: EditButton(), // Edit button
+                    trailing:
+                        NavigationLink("New", destination: TaskView()) // Add new task item
+                )
             }
         }
     }
