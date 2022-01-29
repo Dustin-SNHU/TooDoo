@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B4B6E5227A595C7002253D7 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4B6E5127A595C7002253D7 /* TaskView.swift */; };
 		4B7DA3C2278DB280004147A8 /* TooDooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7DA3C1278DB280004147A8 /* TooDooApp.swift */; };
 		4B7DA3C4278DB280004147A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7DA3C3278DB280004147A8 /* ContentView.swift */; };
 		4B7DA3C6278DB281004147A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B7DA3C5278DB281004147A8 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B4B6E5127A595C7002253D7 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		4B7DA3BE278DB280004147A8 /* TooDoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TooDoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B7DA3C1278DB280004147A8 /* TooDooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooDooApp.swift; sourceTree = "<group>"; };
 		4B7DA3C3278DB280004147A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B4B6E5027A595AF002253D7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4B7DA3C3278DB280004147A8 /* ContentView.swift */,
+				4B4B6E5127A595C7002253D7 /* TaskView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4B7DA3B5278DB280004147A8 = {
 			isa = PBXGroup;
 			children = (
@@ -96,8 +107,8 @@
 		4B7DA3C0278DB280004147A8 /* TooDoo */ = {
 			isa = PBXGroup;
 			children = (
+				4B4B6E5027A595AF002253D7 /* Views */,
 				4B7DA3C1278DB280004147A8 /* TooDooApp.swift */,
-				4B7DA3C3278DB280004147A8 /* ContentView.swift */,
 				4B8010902798BB5E00822176 /* Database.swift */,
 				4B7DA3C5278DB281004147A8 /* Assets.xcassets */,
 				4B7DA3C7278DB281004147A8 /* Preview Content */,
@@ -263,6 +274,7 @@
 				4B8010912798BB5E00822176 /* Database.swift in Sources */,
 				4B7DA3C4278DB280004147A8 /* ContentView.swift in Sources */,
 				4B7DA3C2278DB280004147A8 /* TooDooApp.swift in Sources */,
+				4B4B6E5227A595C7002253D7 /* TaskView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

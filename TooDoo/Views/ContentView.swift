@@ -46,11 +46,15 @@ struct ContentView: View {
                 textField.padding() // Makes button look nicer
                 List {
                     ForEach(self.taskDatabase.tasks) {
-                        task in Text(task.taskName)
+                        task in
+                        HStack {
+                            Image(systemName: "circle"); Text(task.taskName) // Applied a checkbox circle and task name
+                        }
                     }
                     .onMove(perform: self.move)
                     .onDelete(perform: self.delete)
                 }
+                
                 .navigationBarTitle("TooDoo") // Title element
                 .navigationBarItems(trailing: EditButton()) // Edit button
             }
