@@ -1,4 +1,3 @@
-//
 //  ContentView.swift
 //  TooDoo
 //
@@ -30,7 +29,7 @@ struct ContentView: View {
                 })
             }
             HStack {
-                TextField("Description", text: self.$newDescription)
+                TextField("Description (optional)", text: self.$newDescription)
                     .font(Font.system(size: 12, design: .default))
                 DatePicker("", selection: $newDate, displayedComponents: [.date])
             }
@@ -57,12 +56,21 @@ struct ContentView: View {
                 List {
                     ForEach(self.taskDatabase.tasks) {
                         task in VStack {
-                            Text(task.taskName)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            Text(task.taskDescription)
-                                .font(.system(size: 12, weight: .light, design: .default))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            //Date(task.taskDate)
+                            HStack {
+                                Text(task.taskName)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                Text(task.taskDate, style: .date)
+                                    .font(.system(size: 12, design: .default))
+                                    .frame(alignment: .trailing)
+                            }
+                            if task.taskDescription != "" {
+                                Text(task.taskDescription)
+                                    .font(.system(size: 12, weight: .light, design: .default))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            else {
+                                
+                            }
                         }
                     }
                     .onMove(perform: self.move)
