@@ -19,7 +19,23 @@ struct Task: Identifiable {
     var taskDate = Date() // Date of task item
 }
 
-// Create Database ObservableObject to store task items 
-class TaskDatabase : ObservableObject {
-    @Published var tasks = [Task]()
+// Task Database
+class TaskDatabase {
+    
+    private static let myKey: String = "myKey" // Generate a private key called myKey
+    
+    // Set and Get information from local database UserDefaults
+    public static var myValue: String {
+        set {
+            UserDefaults.standard.set(newValue, forKey: myKey) // Set database
+        }
+        get {
+            return UserDefaults.standard.string(forKey: myKey) ?? "" // Return the default database for myKey
+        }
+    }
+    
+    public static func removeValue() {
+        UserDefaults.standard.removeObject(forKey: myKey)
+    }
+    
 }
